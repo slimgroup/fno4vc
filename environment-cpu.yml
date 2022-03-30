@@ -1,0 +1,16 @@
+name: fno4vc_cpu
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - pytorch
+  - pip
+  - cpuonly
+  - pip:
+    - h5py
+    - matplotlib
+    - seaborn
+    - tqdm
+    - GitPython

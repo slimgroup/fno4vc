@@ -1,0 +1,17 @@
+name: fno4vc
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+  - nvidia
+dependencies:
+  - nvidia::cudatoolkit=11.3
+  - python
+  - pytorch::pytorch
+  - pip
+  - pip:
+    - h5py
+    - matplotlib
+    - seaborn
+    - tqdm
+    - GitPython
