@@ -51,8 +51,6 @@ def train(args: argparse.Namespace):
     # Training loop, run for `args.max_epoch` epochs.
     with tqdm(range(args.max_epoch), unit='epoch', colour='#B5F2A9') as pb:
         for epoch in pb:
-            # Reset gradient attributes.
-            optim.zero_grad()
             # Update learning rate.
             scheduler.step()
 
@@ -65,7 +63,9 @@ def train(args: argparse.Namespace):
                     # Move to `device`.
                     image = image.to(args.device)
                     model = model.to(args.device)
-
+                
+                # Reset gradient attributes.
+                optim.zero_grad()
                 # Feed the batch to the Fourier neural operator.
                 pred = g.forward(torch.cat([model, init_image, grid], dim=3))
 
